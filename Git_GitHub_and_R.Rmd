@@ -4,6 +4,10 @@ author: "Enter Your Name"
 output: html_notebook
 ---
 
+```{r}
+library(tidyverse)
+```
+
 
 # Instructions (Step by Step)
 
@@ -12,14 +16,14 @@ output: html_notebook
 # Creating a small fake dataset
 set.seed(2073) # allows for reproducibility 
 
-students <- data.frame(
+Student_Clean <- data.frame(
   Name = paste("Student", 1:20),
   StudyHours = round(runif(20, 1, 10), 1),
   Satisfaction = round(rnorm(20, mean = 7, sd = 1.5), 1),
   Major = sample(c("Data Science", "Business Analytics", "Math", "Computer Science"), 20, replace = TRUE)
 )
 
-head(students)
+head(Student_Clean)
 ```
 
 
@@ -27,7 +31,8 @@ head(students)
 
 ```{r}
 # Remove the Name column
-
+Student_Clean <- Student_Clean %>%
+  select(-Name)
 ```
 
 
@@ -36,13 +41,15 @@ Why might someone drop a column like name or ID from a dataset?
 
 ### Answer:
 
+<span style="color: purple;"> Someone may wants to drop columns like name or ID to make data anonymous. Depending on the purpose of the dataset, it may be unethical or dangerous to include information that can be used to identify individuals.</span>
+
 ## Step 3: Visualize
 ```{r}
 library(ggplot2)
 ```
 
 ```{r}
-ggplot(Students_Clean, aes(x = Major, y = Satisfaction, fill = Major)) +
+ggplot(Student_Clean, aes(x = Major, y = Satisfaction, fill = Major)) +
   geom_boxplot() +
   labs(
     title = "Student Satisfaction by Major",
@@ -58,9 +65,13 @@ ggplot(Students_Clean, aes(x = Major, y = Satisfaction, fill = Major)) +
 ### Questions:
 
 1. What pattern or difference do you see in the chart?
+<span style="color: purple;"> Computer Science and Data Science both have the lowest median satisfaction. Business Analytics has a greater median satisfaction and Math has the highest. There is also an outlier for Data Science that is much higher than the others and is greater than the intended maximum satisfaction level of 10.</span>
 2. What might explain it?
+<span style="color: purple;"> It is possible that the majors with low satisfaction could be more difficult than the others. This could result in people being less satisfied with their classes or their performance.</span>
 3. Do you think this chart is accurate?
+<span style="color: purple;"> I think that this chart is accurate. This is based on my observations of the actual data set.</span>
 4. Why? Why not?
+<span style="color: purple;"> The data set accounts for the minimum, maximum, and outlier values seen in the graph. This makes me think that this chart accurately displays the data.</span>
 
 ## Step 5: Questions on Git, GitHub and R Markdown
 
@@ -74,4 +85,20 @@ ggplot(Students_Clean, aes(x = Major, y = Satisfaction, fill = Major)) +
 6. How could R Markdown help you explain your analysis to someone else?
 
 ### Answers:
+<span style="color: purple;">
+
+1. git add stages any changes made to files on your computer, meaning that they are tracked and recorded for uploading.
+
+2. git commit is used to confirm changes you have staged. git push uploads any committed changes to the specified GitHub repo.
+
+3. GitHub allows you to save code online and access it from anywhere. It also allows you to easily track changes and collaborate with other people.
+
+4. Version control is useful when collaborating because you can more easily track, add, and delete what changes are made, as well as tell what other people are doing or have done.
+
+5. A code chunk in R Markdown is meant to contain code. It assumes that anything written in it is either code or a comment and can be run to run the code inside it. Regular text is assumed not to be code, and is meant to only contain plain text and formatting. Running plain text in code chunks will cause errors in code, and code cannot be run outside of a code chunk.
+
+6. R Markdown can help explain your analysis because you can show both your code/visuals and analysis/description together. You can run code chunks to manipulate data or create visuals, which has the bonus of helping experienced people understand what your process was. Text allows you to explain what you have done and what your visuals mean, which can help someone inexperienced with data and graphs understand what you mean.
+</span>
+
+
 
