@@ -69,9 +69,9 @@ ggplot(Student_Clean, aes(x = Major, y = Satisfaction, fill = Major)) +
 2. What might explain it?
 <span style="color: purple;"> It is possible that the majors with low satisfaction could be more difficult than the others. This could result in people being less satisfied with their classes or their performance.</span>
 3. Do you think this chart is accurate?
-<span style="color: purple;"> I think that this chart is accurate. This is based on my observations of the actual data set.</span>
+<span style="color: purple;"> I do not think that this chart is accurate.</span>
 4. Why? Why not?
-<span style="color: purple;"> The data set accounts for the minimum, maximum, and outlier values seen in the graph. This makes me think that this chart accurately displays the data.</span>
+<span style="color: purple;"> The data is made randomly and not actually taken from any real information or people. Therefore, the data is likely not accurate to any real life scenarios.</span>
 
 ## Step 5: Questions on Git, GitHub and R Markdown
 
